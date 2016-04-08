@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
+  has_many :bodies
 attr_accessor :login
+ attr_accessor :user
   devise :registerable, :confirmable
    
   # Include default devise modules. Others available are:
