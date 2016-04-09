@@ -39,13 +39,17 @@
     <%= f.password_field :current_password, autocomplete: "off" %>
   </div>
   <div class="field">
-    <%= f.radio_button :gender "male" %>Male
-    <%= f.radio_button :gender "female"%>Female
+    <%= f.radio_button :gender ,"male" %>
+    <%= f.radio_button :gender ,"female"%>
    </div> 
   <div class="field">
     <%= f.label :birthday %><br />
     <%= f.date_field :birthday %>
   </div>
+  
+  
+  
+
 
   <div class="actions">
     <%= f.submit "Update" %>

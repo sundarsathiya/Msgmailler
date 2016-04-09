@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  has_many :bodies
+  has_many :body
 attr_accessor :login
  attr_accessor :user
   devise :registerable, :confirmable
@@ -9,7 +9,7 @@ attr_accessor :login
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :trackable, :validatable
   validates :username, presence: true, length: {maximum: 255}, uniqueness: { case_sensitive: false }, format: { with: /\A[a-zA-Z0-9]*\z/, message: "may only contain letters and numbers." }
-  
+  mount_uploader :image, ImageUploader
  private
   def self.find_first_by_auth_conditions(warden_conditions)
   	conditions = warden_conditions.dup

@@ -1,12 +1,10 @@
 class WellController < ApplicationController
-
+before_action :authenticate_user!
   def index
-
-      @body = Body.all
+    
+      @body = Body.where(user_id: current_user)
   end
-  def inbox
-    @body = Body.where(to_id: current_user.id)
-  end
+ 
 
   def new
     @body = Body.new
@@ -18,12 +16,12 @@ class WellController < ApplicationController
       else
          render "new"
        end
-    
-  end
+    end
+    def inbox
+      @body = Body.where(to: current_user)
+    end
   def show
      @body =Body.find(params[:id])
-     redirect_to some_user_default_path if @body.user != @current_user
-
   end
 private
    def body_params

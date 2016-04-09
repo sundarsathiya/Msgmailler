@@ -8,8 +8,8 @@ private
 
       def configure_permitted_parameters
 
-	   devise_parameter_sanitizer.for(:sign_up) {|u| u.permit(:email, :password, :password_confirmation, :firstname, :lastname, :birthday,:gender, :username )}
-	   devise_parameter_sanitizer.for(:account_update) {|u| u.permit(:email, :password, :password_confirmation, :firstname, :lastname, :birthday,:gender,:username)}
+	   devise_parameter_sanitizer.for(:sign_up) {|u| u.permit(:email, :password, :password_confirmation, :firstname, :lastname, :birthday,:gender, :username,:state,:city,:street,:country,:zipcode,:image )}
+	   devise_parameter_sanitizer.for(:account_update) {|u| u.permit(:email, :password, :password_confirmation, :firstname, :lastname, :birthday,:gender,:username,:state,:city,:street,:country,:zipcode,:image)}
 end
 
 end

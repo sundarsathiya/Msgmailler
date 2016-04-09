@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
-  
-get 'well/inbox'
-  get 'home/index'
+
+  resources :profiles
+  resources :contacts
+get 'inbox'=> 'well#inbox'
+  #get 'home/index'
+  resources:inbox
+  resources :home
+
 resources :well
   mount Ckeditor::Engine => '/ckeditor'
   devise_for :users

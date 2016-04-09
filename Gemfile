@@ -46,5 +46,6 @@ group :development do
   gem 'devise'
    gem 'carrierwave'
    gem 'ckeditor'
+   gem 'country_select'
 end
 

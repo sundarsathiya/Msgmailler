@@ -1,17 +1,18 @@
 
 <table>
   <tr>
-    <th>to</th>
+    <th>TO</th>
     
-    <th>message</th>
-    <th>image</th>
+    <th>MESSAGE</th>
+
+    <th>FILE</th>
   </tr>
   
 <% @body.each do |c| %>
 <tr>
 <td><%= c.to %></td>
 
-<td><%= c.message %></td>
+<td><%= c.message[1.10].html_safe %></td>
 <td><%= c.image %></td>
 <td><%= link_to"view",well_path(c) %></td>
 
