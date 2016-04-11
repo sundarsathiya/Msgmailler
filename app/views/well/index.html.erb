@@ -8,14 +8,14 @@
     <th>FILE</th>
   </tr>
   
-<% @body.each do |c| %>
+<% @messages.each do |c| %>
 <tr>
 <td><%= c.to %></td>
 
-<td><%= c.message[1.10].html_safe %></td>
+<td><%= c.body[0..10].html_safe %></td>
 <td><%= c.image %></td>
 <td><%= link_to"view",well_path(c) %></td>
-
+ <td><%= link_to "delete",well_path(c) , method: :delete, data: { confirm: 'Are you sure?' } %></td>
 <% end %>
 </tr>
 </table>

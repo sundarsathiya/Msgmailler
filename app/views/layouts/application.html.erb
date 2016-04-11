@@ -24,19 +24,26 @@
 </div>
 
   <body>
-   <div style="background-color:#FF0000;padding:10px;">
+  
+   <div style="background-color:skyblue;padding:10px;">
+   <nav class ="navbar navbar-defauld login-top">
+  <div class="pull-left">
+
     <% if user_signed_in? %>
     Signed in as <%= current_user.email %>. Not you?
+    <%= current_user.username%>
       <%= link_to "logout", destroy_user_session_path, method: :delete %> |
       <%= link_to "edit", edit_user_registration_path %>
-      <%= current_user.username%>
+      
     <%else%>
       <%= link_to "Login", new_user_session_path %> |
       <%= link_to "Sign Up", new_user_registration_path %>
     <%end%>
+     </div>
+      </nav>
     <%= yield %>
-
     
+   
     <%= javascript_include_tag "application" %>
   </body>
 </html>

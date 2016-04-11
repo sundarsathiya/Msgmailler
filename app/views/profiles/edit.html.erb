@@ -1,0 +1,48 @@
+<%= form_for :user, url: {action: "update"}, method: :put do |f| %>
+<h3>Profile image</h3>
+  <div class="field">
+    <%= image_tag @user.image_url.to_s, height:"100", width: "100" if @user.image.present? %><br />
+  </div>
+  <div class="field">
+    <%= f.label :image %><br />
+    <%= f.file_field :image %>
+  </div>
+<h3>Person Detail</h3>
+  <div class="field">
+    <%= f.label :firstname %><br />
+    <%= f.text_field :firstname %>
+  </div>
+  <div class="field">
+    <%= f.label :lastname %><br />
+    <%= f.text_field :lastname %>
+  </div>
+  <div class="field">
+    <%= f.label :username %><br />
+    <%= f.text_field :username %>
+  </div>
+<h3>Contact Details</h3>
+   <div class="field">
+    <%= f.label :street %><br />
+    <%= f.text_field :street %>
+  </div>
+   <div class="field">
+    <%= f.label :city%><br />
+    <%= f.text_field :city %>
+  </div>
+  <div class="field">
+    <%= f.label :state %><br />
+    <%= f.text_field :state %>
+  </div>
+   
+   <div class="field">
+    <%= f.label :country %><br />
+    <%= f.country_select("country", priority_countries: ["IN", "US", "GB"]) %>
+  </div>
+ <div class="field">
+    <%= f.label :zipcode %><br />
+    <%= f.text_field :zipcode %>
+  </div> 
+
+  <%= f.submit "update" %>
+
+<%end%>

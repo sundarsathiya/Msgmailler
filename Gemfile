@@ -47,5 +47,6 @@ group :development do
    gem 'carrierwave'
    gem 'ckeditor'
    gem 'country_select'
+   gem 'twitter-bootstrap-rails'
 end
 

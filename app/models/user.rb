@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  has_many :body
+  has_many :messages
 attr_accessor :login
  attr_accessor :user
   devise :registerable, :confirmable

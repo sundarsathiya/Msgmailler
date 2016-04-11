@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :profiles
   resources :contacts
 get 'inbox'=> 'well#inbox'
+get 'trash'=>'well#trash'
   #get 'home/index'
   resources:inbox
   resources :home

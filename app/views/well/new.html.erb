@@ -1,0 +1,27 @@
+<%= form_for :message, url: well_index_path do |f| %>
+<div class="field">
+  <%= f.label :to %><br />
+  <%= f.select :to, User.all.collect{ |f| [f.email, f.id] if f.confirmed? } %>
+  </div>
+  <div class="field">
+   <%= f.label :from%>
+  <%= f.text_field :user_id ,value: current_user.email, readonly: :true%><br/>
+    <%#= f.hidden_field :user_id , :value => current_user.email%>
+  </div>
+  <div class="field">
+    <%= f.label :body%><br/>
+    <%= f.cktext_area :body, :width => 100 %>
+    
+  </div>
+  <div class="field">
+    <%= f.label :file%><br />
+    <%= f.file_field :image%>
+  </div>
+  <div class="field">
+    <%= f.label :status%><br />
+    <%= f.file_field :status%>
+  </div>
+   <div class="actions">
+    <%= f.submit "send mail" %>
+  </div>
+<% end %>
