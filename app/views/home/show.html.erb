@@ -1,4 +1,8 @@
-<%= link_to "message",new_well_path %>
-	 <%= link_to "inbox",inbox_path %>
-	
-    <%= link_to "sendmail", well_index_path %>
+<td>
+<% @setting.each do |c| %>
+<%= c.inboxlimit %>
+
+<% end %>
+<%= link_to "edit", edit_home_path(c) %>
+
+<%= link_to 'Back',  home_index_path %>

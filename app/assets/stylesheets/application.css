@@ -14,4 +14,7 @@
  *= require_self
  
  */
- 
+
+circular-image {
+  border-radius:  50%;
+}

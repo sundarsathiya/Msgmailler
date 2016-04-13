@@ -1,0 +1,11 @@
+
+
+<%= form_for :setting, url: home_path(@setting), method: :patch do |f| %>
+  <div class="field">
+    <%= f.label :setting%><br/>
+    <%= f.text_field :inboxlimit%>
+  </div>
+  <div class="actions">
+    <%= f.submit"save"  %>
+  </div>
+<% end %>

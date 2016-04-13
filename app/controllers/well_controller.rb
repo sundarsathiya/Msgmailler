@@ -1,8 +1,13 @@
 class WellController < ApplicationController
 before_action :authenticate_user!
   def index
+    @messages = Message.where(user_id: current_user.id,status: nil).paginate(page: params[:page], per_page: 5)
+    @search = Message.ransack(params[:q])
+    @messages =  @search.result.paginate(page: params[:page], per_page: 5)
+     
+  
     
-      @messages = Message.where(user_id: current_user.email)
+    #  @messages = Message.where(user_id: current_user.id,status: nil).paginate(page: params[:page], per_page: 2)
   end
  
 
@@ -19,7 +24,7 @@ before_action :authenticate_user!
        end
     end
     def inbox
-      @messages = Message.where(to: current_user.id, status: nil)
+      @message = Message.where(to: current_user.email, status: nil)
     end
   def show
      @message =Message.find(params[:id])
@@ -27,13 +32,31 @@ before_action :authenticate_user!
   def destroy
    @message=Message.find(params[:id])
  
-     @message.destroy(status:'delete')
+     @message.update(status:'deleted')
   
     redirect_to  root_path
   end
- def trash
+    def trash
 		@message = Message.where(to_id: current_user.id, status: 'deleted')
+		@message = Message.where(user_id: current_user.email, status:'deleted')
 	end
+		def remove
+		@message = Message.find(params[:id])
+		
+		@message.destroy
+		
+		redirect_to messages_trash_path
+		
+	end
+
+	def restore
+		@message = Message.find(params[:id])
+		
+		@message.update(status: nil)
+		
+		redirect_to root_path
+	end
+
 
 
 

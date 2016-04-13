@@ -1,8 +1,12 @@
+<table>
+<tr>
+    <th>inboxlimit</th>
+    <tr>
+	<% @settings.each do |setting| %>
+	<td><%= setting.inboxlimit %></td>
+	<td><%= link_to "edit", edit_home_path(setting) %></td>
+<td><%= link_to "show",home_index_path(setting) %></td>
+</tr> 
+</div>
+<% end %>
 
-	 <%= link_to "message",new_well_path %>
-	 <%= link_to "inbox",inbox_path %>
-	
-    <%= link_to "sendmail", well_index_path %>
-    
-    <%= link_to "trash"%>
-    <%= link_to "profile",edit_profile_path(id: current_user.id) %>

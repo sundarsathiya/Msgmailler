@@ -48,5 +48,7 @@ group :development do
    gem 'ckeditor'
    gem 'country_select'
    gem 'twitter-bootstrap-rails'
+   gem 'will_paginate'
+   gem 'ransack'
 end
 

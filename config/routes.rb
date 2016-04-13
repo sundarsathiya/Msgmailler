@@ -1,11 +1,15 @@
 Rails.application.routes.draw do
 
+  get 'email/index'
+
   resources :profiles
   resources :contacts
 get 'inbox'=> 'well#inbox'
-get 'trash'=>'well#trash'
-  #get 'home/index'
-  resources:inbox
+get'trash/well' => "well#trash" ,as: :tash_well
+get'well/restore/:id' => 'well#restore' ,as:  :well_restore
+delete'well/deleted/:id' => 'well#delete', as: :well_remove
+
+  resources :inbox
   resources :home
 
 resources :well
@@ -15,7 +19,7 @@ resources :well
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-   root 'home#index'
+   root 'email#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

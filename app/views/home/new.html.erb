@@ -1,0 +1,10 @@
+<%= form_for :setting, url: home_index_path do |f| %>
+</div>
+  <div class="field">
+    <%= f.label :setting%><br/>
+    <%= f.text_field :inboxlimit%>
+  </div>
+  <div class="actions">
+    <%= f.submit"save"  %>
+  </div>
+<% end %>
