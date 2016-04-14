@@ -56,10 +56,15 @@ before_action :authenticate_user!
 		
 		redirect_to root_path
 	end
-
-
-
-
+  def favorite_message
+     @message = Message.all.where(to: current_user.email ,favorite: 'true')
+  end
+  
+  def favorite_update
+         @message = Message.find(params[:id])
+        @message.update_attributes(favorite: 'true')
+        redirect_to root_path 
+    end
 private
    def message_params
      params.require(:message).permit(:user_id,:to,:image, :body,:status)

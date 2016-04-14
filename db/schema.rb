@@ -11,7 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160413094634) do
+ActiveRecord::Schema.define(version: 20160414122950) do
+
+  create_table "add_favorite_to_messages", force: :cascade do |t|
+    t.string   "favorite"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "ckeditor_assets", force: :cascade do |t|
     t.string   "data_file_name",               null: false
@@ -46,12 +52,14 @@ ActiveRecord::Schema.define(version: 20160413094634) do
     t.string   "image"
     t.integer  "user_id"
     t.string   "status"
+    t.string   "favorite"
   end
 
   create_table "settings", force: :cascade do |t|
     t.integer  "inboxlimit"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
   end
 
   create_table "trashes", force: :cascade do |t|

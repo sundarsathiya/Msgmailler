@@ -1,0 +1,17 @@
+<table>
+  <tr>
+    <!-- <th>TO</th> -->
+    
+    <th>MESSAGE</th>
+
+    <th>FILE</th>
+  </tr>
+  
+<% @message.each do |c| %>
+<tr>
+<td><%= c.to %></td>
+<td><%= c.body %></td>
+<td><%= c.image %></td><% end %>
+</tr>
+</table>
+<%= link_to 'Back',  root_path %>

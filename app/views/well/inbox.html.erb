@@ -1,6 +1,6 @@
 <table>
   <tr>
-      <%= link_to "settings",home_index_path %> 
+      <%= link_to "settings",new_home_path %> 
 
     <th>FROM</th>
     
@@ -18,7 +18,9 @@
 <td><%= c.body[1.10].html_safe %></td>
  
 <td><%= link_to"Download file",c.image_url %></td>
+<td><%= link_to"favorite", favorite_update_path(id:c) %></td>
 <td><%= link_to"view",well_path(c) %></td>
+
 <td><%= link_to "delete",well_path(c) , method: :delete, data: { confirm: 'Are you sure?' } %></td>
 <% end %>
 </tr>

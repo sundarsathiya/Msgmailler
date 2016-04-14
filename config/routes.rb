@@ -5,10 +5,11 @@ Rails.application.routes.draw do
   resources :profiles
   resources :contacts
 get 'inbox'=> 'well#inbox'
-get'trash/well' => "well#trash" ,as: :tash_well
-get'well/restore/:id' => 'well#restore' ,as:  :well_restore
+get 'trash/well' => "well#trash" ,as: :tash_well
+get 'well/restore/:id' => 'well#restore' ,as:  :well_restore
 delete'well/deleted/:id' => 'well#delete', as: :well_remove
-
+get 'favorite/well'=>"well#favorite_message" ,as: :favorite_well
+get 'favorite_update'=> "well#favorite_update",as: :favorite_update
   resources :inbox
   resources :home
 
