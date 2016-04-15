@@ -1,7 +1,15 @@
 <table>
   <tr>
-      <%= link_to "settings",new_home_path %> 
-
+      <%= link_to "settings", home_index_path %> 
+      <%= search_form_for @search ,url: well_index_path do |f| %>
+  <div class="field">
+    <%= f.label :body_cont, "Name contains" %>
+    <%= f.text_field :body_cont %>
+  </div>
+  <div class="actions">
+  <%= f.submit "Search" %>
+  </div>
+<% end %>
     <th>FROM</th>
     
     <th>MESSAGE</th>
@@ -10,12 +18,12 @@
 
   </tr>
   
-<% @message.each do |c| %>
+<% @messages.each do |c| %>
 <tr>
 
 <td><%= c.user_id %></td>
 
-<td><%= c.body[1.10].html_safe %></td>
+<td><%= c.body.to_s.html_safe %></td>
  
 <td><%= link_to"Download file",c.image_url %></td>
 <td><%= link_to"favorite", favorite_update_path(id:c) %></td>

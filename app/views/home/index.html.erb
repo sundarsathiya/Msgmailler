@@ -1,12 +1,11 @@
-<table>
-<tr>
-    <th>inboxlimit</th>
-    <tr>
-	<% @settings.each do |setting| %>
-	<td><%= setting.inboxlimit %></td>
-	<td><%= link_to "edit", edit_home_path(setting) %></td>
-<td><%= link_to "show",home_index_path(setting) %></td>
-</tr> 
+<%= form_for :setting, url: home_update_path, method: :'PUT' do |f| %>
+ <input name="_method" type="hidden" value="put" />
 </div>
+  <div class="field">
+    <%= f.label :setting%><br/>
+    <%= f.text_field :inboxlimit%>
+  </div>
+  <div class="actions">
+    <%= f.submit"save"  %>
+  </div>
 <% end %>
-

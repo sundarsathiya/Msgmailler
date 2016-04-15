@@ -50,5 +50,7 @@ group :development do
    gem 'twitter-bootstrap-rails'
    gem 'will_paginate'
    gem 'ransack'
+   gem 'fullcalendar-rails'
+   gem 'momentjs-rails'
 end
 

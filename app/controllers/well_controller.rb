@@ -1,9 +1,10 @@
 class WellController < ApplicationController
 before_action :authenticate_user!
   def index
-    @messages = Message.where(user_id: current_user.id,status: nil).paginate(page: params[:page], per_page: 5)
+    @inboxlimit = current_user.settings.pluck(:inboxlimit).first
+    @messages = Message.where(user_id: current_user.id,status: nil).paginate(page: params[:page], per_page: @inboxlimit)
     @search = Message.ransack(params[:q])
-    @messages =  @search.result.paginate(page: params[:page], per_page: 5)
+    @messages =  @search.result.paginate(page: params[:page], per_page:@inboxlimit)
      
   
     
@@ -24,7 +25,12 @@ before_action :authenticate_user!
        end
     end
     def inbox
-      @message = Message.where(to: current_user.email, status: nil)
+      #@message = Message.where(to: current_user.id, status: nil)
+       @inboxlimit = current_user.settings.pluck(:inboxlimit).first
+     @messages = Message.where(to: current_user.id,status: nil).paginate(page: params[:page], per_page: @inboxlimit)
+     @search = Message.ransack(params[:q])
+     @messages =  @search.result.paginate(page: params[:page], per_page:@inboxlimit)
+     
     end
   def show
      @message =Message.find(params[:id])
@@ -38,7 +44,7 @@ before_action :authenticate_user!
   end
     def trash
 		@message = Message.where(to_id: current_user.id, status: 'deleted')
-		@message = Message.where(user_id: current_user.email, status:'deleted')
+		@message = Message.where(user_id: current_user.id, status:'deleted')
 	end
 		def remove
 		@message = Message.find(params[:id])
@@ -57,7 +63,7 @@ before_action :authenticate_user!
 		redirect_to root_path
 	end
   def favorite_message
-     @message = Message.all.where(to: current_user.email ,favorite: 'true')
+     @message = Message.all.where(to: current_user.id ,favorite: 'true')
   end
   
   def favorite_update
@@ -69,9 +75,6 @@ private
    def message_params
      params.require(:message).permit(:user_id,:to,:image, :body,:status)
 end
-
-
-
 
 
 

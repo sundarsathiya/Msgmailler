@@ -1,6 +1,6 @@
 
 <table>
-    <%= link_to "SETTINGS", new_home_path %> 
+    <%= link_to "SETTINGS", home_index_path %> 
 
 <%= search_form_for @search ,url: well_index_path do |f| %>
   <div class="field">
@@ -25,8 +25,8 @@
 
 <tr>
 <td><%= c.to %></td>
-
-<td><%= c.body %></td>
+<td><%# =c.body[0..10].html_safe %></td>
+<td><%= c.body.to_s.html_safe %></td>
 <td><%= link_to"Download file",c.image_url %></td>
 <td><%= link_to"view",well_path(c) %></td>
  <td><%= link_to "delete",well_path(c) , method: :delete, data: { confirm: 'Are you sure?' } %></td>

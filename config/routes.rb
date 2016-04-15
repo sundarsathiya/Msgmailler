@@ -10,6 +10,10 @@ get 'well/restore/:id' => 'well#restore' ,as:  :well_restore
 delete'well/deleted/:id' => 'well#delete', as: :well_remove
 get 'favorite/well'=>"well#favorite_message" ,as: :favorite_well
 get 'favorite_update'=> "well#favorite_update",as: :favorite_update
+get 'home/index' => 'home#index' 
+get '/new/home' => 'home#new'
+put 'home/update'=>'home#update'
+
   resources :inbox
   resources :home
 

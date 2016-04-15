@@ -1,7 +1,7 @@
 <%= form_for :message, url: well_index_path do |f| %>
 <div class="field">
   <%= f.label :to %><br />
-  <%= f.select :to, User.all.collect{ |f| [f.email, f.id] if f.confirmed? } %>
+  <%= f.select :to, User.all.collect{ |f| [f.email, f.email] if f.confirmed? } %>
   </div>
   <div class="field">
    <%= f.label :from%>
