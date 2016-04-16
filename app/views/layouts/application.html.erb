@@ -43,9 +43,9 @@
     <%= current_user.username%>
     
      <%= link_to "compose",new_well_path %>
-   <%= link_to "inbox",inbox_path %>
+   <%= link_to "inbox (#{ @count_inbox})",inbox_path %>
   <%= link_to "calender",new_home_path %>
-    <%= link_to "sendmail", well_index_path %>
+    <%= link_to "sendmail (#{@count_send })", well_index_path %>
      <%= link_to "favorite", favorite_well_path %>
     <%= link_to "trash",tash_well_path%>
  <%= link_to "profile",edit_profile_path(id: current_user.id) %>

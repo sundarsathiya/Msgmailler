@@ -13,12 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20160414122950) do
 
-  create_table "add_favorite_to_messages", force: :cascade do |t|
-    t.string   "favorite"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "ckeditor_assets", force: :cascade do |t|
     t.string   "data_file_name",               null: false
     t.string   "data_content_type"
@@ -60,12 +54,6 @@ ActiveRecord::Schema.define(version: 20160414122950) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "user_id"
-  end
-
-  create_table "trashes", force: :cascade do |t|
-    t.string   "status"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
