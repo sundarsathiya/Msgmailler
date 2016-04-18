@@ -9,10 +9,10 @@ class ApplicationController < ActionController::Base
   def menu_count
     if current_user
      
-     
-       @inbox_counts = Message.where(to: current_user.id).count
+     p '********************************************'
+       p @inbox_counts = Message.where(to: current_user.id).count
        @sendmail_counts = Message.where(user_id: current_user.id).count
-
+       @contuct_counts = current_user.contacts.count
     end
   end
   

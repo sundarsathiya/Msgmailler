@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   has_many :messages
   has_many :settings
+  has_many :contacts
 attr_accessor :login
  attr_accessor :user
   devise :registerable, :confirmable

@@ -3,7 +3,6 @@ class HomeController < ApplicationController
   def index
     Setting.find_or_create_by(user_id:current_user.id) do |s|
       s.inboxlimit = 10
-      @count_contact = current_user.contact.count
     end
    end 
 
