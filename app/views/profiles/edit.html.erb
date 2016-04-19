@@ -36,7 +36,8 @@
    
    <div class="field">
     <%= f.label :country %><br />
-    <%= f.country_select("country", priority_countries: ["IN", "US", "GB"]) %>
+    <%#= f.country_select("country", priority_countries: ["IN", "US", "GB"]) %>
+    <%= f.select :country, collection: CountryStateSelect.countries_collection %>
   </div>
  <div class="field">
     <%= f.label :zipcode %><br />

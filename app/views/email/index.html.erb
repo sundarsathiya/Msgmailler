@@ -1,0 +1,14 @@
+<%#= simple_form_for @form_object do |f| %>
+<%#= f.input :country_field, collection: CountryStateSelect.countries_collection %>
+<%#= options = { form: f, field_names: { :country => :country_field, :state => :state_field } }
+
+f.input :state_field, CountryStateSelect.state_options(options) %>
+  <!-- f.button :submit -->
+<%# end %>
+<!-- $(document).on('ready page:load', function() {
+  return CountryStateSelect({
+    country_id: "country_field_id",
+    state_id: "state_field_id"
+  });
+}); -->
+<!-- <select id="country_field_id"></select> -->
